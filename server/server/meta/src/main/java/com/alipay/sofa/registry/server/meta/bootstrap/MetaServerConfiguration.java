@@ -48,6 +48,7 @@ import com.alipay.sofa.registry.server.meta.remoting.handler.RegistryForbiddenSe
 import com.alipay.sofa.registry.server.meta.remoting.meta.MetaNodeExchange;
 import com.alipay.sofa.registry.server.meta.remoting.meta.MetaServerRenewService;
 import com.alipay.sofa.registry.server.meta.resource.*;
+import com.alipay.sofa.registry.server.meta.resource.filter.AuthRestFilter;
 import com.alipay.sofa.registry.server.meta.resource.filter.LeaderAwareFilter;
 import com.alipay.sofa.registry.server.meta.slot.status.SlotTableStatusService;
 import com.alipay.sofa.registry.server.shared.remoting.AbstractServerHandler;
@@ -305,6 +306,11 @@ public class MetaServerConfiguration {
     @Bean
     public LeaderAwareFilter leaderAwareFilter() {
       return new LeaderAwareFilter();
+    }
+
+    @Bean
+    public AuthRestFilter authRestFilter() {
+      return new AuthRestFilter();
     }
 
     @Bean
